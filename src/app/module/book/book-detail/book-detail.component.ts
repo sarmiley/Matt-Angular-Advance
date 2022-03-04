@@ -3,11 +3,11 @@ import { CommonService } from '../../util/common.service';
 import { UtilService } from '../../util/util.service';
 
 @Component({
-  selector: 'app-member-manage',
-  templateUrl: './member-manage.component.html',
-  styleUrls: ['./member-manage.component.scss'],
+  selector: 'app-book-detail',
+  templateUrl: './book-detail.component.html',
+  styleUrls: ['./book-detail.component.scss'],
 })
-export class MemberManageComponent implements OnInit {
+export class BookDetailComponent implements OnInit {
   commonTag = '';
   utilTag = '';
 
@@ -19,7 +19,7 @@ export class MemberManageComponent implements OnInit {
   ngOnInit(): void {}
 
   changeServiceTagContent(): void {
-    this.commonService.setTag('common service has changed by MemberManage');
-    this.utilService.setTag('util service has changed by MemberManage');
+    this.commonService.setTag('common service has changed by BookDetail');
+    this.utilService.setTag('util service has changed by BookDetail');
   }
 }

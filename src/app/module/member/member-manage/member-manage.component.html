@@ -1,1 +1,10 @@
 <p>member-manage works!</p>
+
+<p> {{ this.commonTag }}</p>
+<p> {{ this.utilTag }}</p>
+
+<button (click)="changeServiceTagContent()">change tag content</button>
+
+<p><a [routerLink]="['/book']" >Book</a></p>
+
+<a [routerLink]="['/home']">Home</a>

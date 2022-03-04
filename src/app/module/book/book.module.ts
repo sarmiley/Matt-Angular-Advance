@@ -5,17 +5,12 @@ import { BookRoutingModule } from './book-routing.module';
 import { BookManageComponent } from './book-manage/book-manage.component';
 
 import { ShareModule } from 'src/app/shared/shared/shared.module';
-
-
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { CommonService } from '../util/common.service';
 
 @NgModule({
-  declarations: [
-    BookManageComponent
-  ],
-  imports: [
-    CommonModule,
-    ShareModule,
-    BookRoutingModule
-  ]
+  declarations: [BookManageComponent, BookDetailComponent],
+  imports: [CommonModule, ShareModule, BookRoutingModule],
+  providers: [CommonService],
 })
-export class BookModule { }
+export class BookModule {}

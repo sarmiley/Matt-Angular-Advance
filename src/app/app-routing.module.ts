@@ -1,14 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './module/util/not-found/not-found.component';
+import { BusyComponent } from './module/util/busy/busy.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'public',
     children: [
       {
-        path: '',
-        loadChildren: () => import('./module/home/home.module').then(m => m.HomeModule)
+        path: 'auth',
+        loadChildren: () => import('./module/auth/auth.module').then(m => m.AuthModule)
       },
+      { 
+        path: '',
+        loadChildren: () => import('./module/home/home.module').then(m => m.HomeModule) 
+      },
+    ]
+  },
+  {
+    path:'',
+    children: [
       {
         path: 'book',
         loadChildren: () => import('./module/book/book.module').then(m => m.BookModule)
@@ -17,21 +28,28 @@ const routes: Routes = [
         path: 'member',
         loadChildren: () => import('./module/member/member.module').then(m => m.MemberModule)
       },
+      {
+        path: 'analytics',
+        loadChildren: () => import('./module/analytics/analytics.module').then(m => m.AnalyticsModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./module/home/home.module').then(m => m.HomeModule)
+      },
     ]
   },
   {
-    path:'public',
-    children: [
-      { 
-        path: 'home',
-        loadChildren: () => import('./module/home/home.module').then(m => m.HomeModule) 
-      },
-      {
-        path: 'auth',
-        loadChildren: () => import('./module/auth/auth.module').then(m => m.AuthModule)
-      }
-    ]
+    path: '404',
+    component: NotFoundComponent
   },
+  {
+    path: '500',
+    component: BusyComponent
+  },
+  { 
+    path: '**', 
+    redirectTo: '404'
+  }
 ];
 
 @NgModule({

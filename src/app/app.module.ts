@@ -1,3 +1,4 @@
+import { UtilModule } from './module/util/util.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,14 +17,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    UtilModule
   ],
-  // 公開給外部使用的
+  // 公開給外部使用的類別
   exports: [
-
   ],
   // 宣告在這個 module 層級注入的 Services，供 module 底下的組成元件使用
   providers: [],
-  // 
-  bootstrap: [AppComponent]
+  // 自動啟用的元件，如: index.html中的app-root
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
