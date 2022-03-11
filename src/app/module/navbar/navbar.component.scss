@@ -1,0 +1,90 @@
+::ng-deep .mat-light-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: rgba(168, 168, 168, 0.8);
+}
+
+::ng-deep .mat-light-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+::ng-deep .mat-dark-theme .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+::ng-deep .mat-dark-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+::ng-deep .mat-dark-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+::ng-deep .mat-dark-theme .mat-slide-toggle-thumb {
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  background-color: #000000;
+}
+
+.topnav {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  &.mat-dark-theme {
+    background-color: #3f3f3f;
+    & a {
+      color: white;
+    }
+    & a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    & a.active {
+      background-color: #04aa6d;
+      color: white;
+    }
+  }
+  &.mat-light-theme {
+    background-color: #f5efe3;
+    & a {
+      color: rgb(122, 122, 122);
+    }
+    & a:hover {
+      background-color: rgb(255, 255, 255);
+      color: black;
+    }
+    & a.active {
+      background-color: #04aa6d;
+      color: white;
+    }
+  }
+  &__icon {
+    display: inline;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    & img {
+      vertical-align: middle;
+      border-style: none;
+    }
+  }
+  &__content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    & a {
+      color: #f2f2f2;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+  }
+}

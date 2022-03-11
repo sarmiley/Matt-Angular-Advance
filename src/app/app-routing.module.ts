@@ -5,55 +5,59 @@ import { BusyComponent } from './module/util/busy/busy.component';
 
 const routes: Routes = [
   {
-    path:'public',
+    path: 'public',
     children: [
       {
         path: 'auth',
-        loadChildren: () => import('./module/auth/auth.module').then(m => m.AuthModule)
+        loadChildren: () => import('./module/auth/auth.module').then((m) => m.AuthModule),
       },
-      { 
+      {
+        path: 'dinner',
+        loadChildren: () => import('./module/dinner/dinner.module').then((m) => m.DinnerModule),
+      },
+      {
         path: '',
-        loadChildren: () => import('./module/home/home.module').then(m => m.HomeModule) 
+        loadChildren: () => import('./module/home/home.module').then((m) => m.HomeModule),
       },
-    ]
+    ],
   },
   {
-    path:'',
+    path: '',
     children: [
       {
         path: 'book',
-        loadChildren: () => import('./module/book/book.module').then(m => m.BookModule)
+        loadChildren: () => import('./module/book/book.module').then((m) => m.BookModule),
       },
       {
         path: 'member',
-        loadChildren: () => import('./module/member/member.module').then(m => m.MemberModule)
+        loadChildren: () => import('./module/member/member.module').then((m) => m.MemberModule),
       },
       {
         path: 'analytics',
-        loadChildren: () => import('./module/analytics/analytics.module').then(m => m.AnalyticsModule)
+        loadChildren: () => import('./module/analytics/analytics.module').then((m) => m.AnalyticsModule),
       },
       {
         path: '',
-        loadChildren: () => import('./module/home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./module/home/home.module').then((m) => m.HomeModule),
       },
-    ]
+    ],
   },
   {
     path: '404',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   },
   {
     path: '500',
-    component: BusyComponent
+    component: BusyComponent,
   },
-  { 
-    path: '**', 
-    redirectTo: '404'
-  }
+  {
+    path: '**',
+    redirectTo: '404',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

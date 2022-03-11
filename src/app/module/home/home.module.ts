@@ -1,4 +1,3 @@
-import { CommonService } from './../util/common.service';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

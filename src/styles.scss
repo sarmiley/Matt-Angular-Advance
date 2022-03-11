@@ -1,38 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/themes/custom-themes.scss';
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@media screen and (min-width: 1000px) {
+  body {
+    height: 1000px;
+  }
+}
+@media screen and (min-width: 800px) {
+  body {
+    height: 800px;
+  }
+}
+@media screen and (min-width: 600px) {
+  body {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 400px) {
+  body {
+    height: 400px;
+  }
+}
+@media screen and (min-width: 200px) {
+  body {
+    height: 200px;
+  }
+}
 
-@media screen and (min-width: 1000px) { 
-    body {
-      height: 1000px;
-    }
-  }
-  @media screen and (min-width: 800px) { 
-    body {
-      height: 800px;
-    }
-  }
-  @media screen and (min-width: 600px) { 
-    body {
-      height: 600px;
-    }
-  } 
-  @media screen and (min-width: 400px) { 
-    body {
-      height: 400px;
-    }
-  } 
-  @media screen and (min-width: 200px) { 
-    body {
-      height: 200px;
-    }
-  }  
+.top {
+  height: calc(50vh);
+}
 
-  .top {
-    height: calc(50vh);
-  }
+.buttom {
+  height: calc(50vh);
+}
 
-  .buttom {
-    height: calc(50vh);
-  }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

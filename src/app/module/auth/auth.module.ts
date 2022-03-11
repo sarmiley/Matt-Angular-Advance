@@ -4,18 +4,10 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 import { LoginComponent } from './login/login.component';
 
-import { ShareModule } from 'src/app/shared/shared/shared.module';
-
-
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    ShareModule,
-    AuthRoutingModule
-  ]
+  declarations: [LoginComponent],
+  imports: [CommonModule, SharedModule, AuthRoutingModule],
 })
-export class AuthModule { }
+export class AuthModule {}

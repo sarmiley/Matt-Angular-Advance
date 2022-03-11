@@ -1,0 +1,31 @@
+.tabs-container {
+  width: 80vw;
+  margin: 30px auto;
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+.card-container {
+  width: 80vw;
+  margin: 30px auto;
+  padding: 15px;
+}
+
+.activeTab {
+  background-color: yellow;
+  color: purple;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+}

@@ -1,10 +1,44 @@
-<p>member-manage works!</p>
+<!--  Directive -->
+<div class='card-container'>
+  <mat-card>
+    <mat-card-title>
+      <p #appColorful>Member List</p>
+    </mat-card-title>
+    <mat-card-content>
+      <input appColorful='purple' #color='appColorful' [(ngModel)]="memberList">
+    </mat-card-content>
+    <mat-card-footer>
+      <button mat-button (click)="changeColor('yellow')">Yellow</button>
+      <button mat-button (click)="changeColor('blue')">blue</button>
+      <button mat-button (click)="changeColor('red')">Red</button>
+    </mat-card-footer>
+  </mat-card>
+</div>
 
-<p> {{ this.commonTag }}</p>
-<p> {{ this.utilTag }}</p>
 
-<button (click)="changeServiceTagContent()">change tag content</button>
+<!-- ngComponentOutlet -->
+<div class='tabs-container'>
+  <mat-tab-group>
+    <mat-tab label="List"><app-member-list [(memberList)]='memberList'></app-member-list></mat-tab>
+    <mat-tab label="Account">
+      <ng-container *ngComponentOutlet="getAccount()"></ng-container>
+    </mat-tab>
+    <mat-tab label="Memo"><app-member-memo></app-member-memo></mat-tab>
+  </mat-tab-group>
+</div>
 
-<p><a [routerLink]="['/book']" >Book</a></p>
+<!-- ngComponentOutlet2 -->
+<div class='tabs-container'>
+  <ul class="nav">
+    <li *ngFor="let x of tabs;let ind=index" class="nav-item">
+      <a [ngClass]="x.isActive ? 'activeTab' : ''" class="nav-link" (click)="ldTab(x.component, x.data,ind)">{{ x.tab }}</a>
+    </li>
+  </ul>
 
-<a [routerLink]="['/home']">Home</a>
+  <ng-container
+    [ngComponentOutlet]="activeComponent"
+    [ngComponentOutletInjector]="myInjector"
+  ></ng-container>
+
+  <p>Data received from Tab Component: {{ receivedData }}</p>
+</div>
