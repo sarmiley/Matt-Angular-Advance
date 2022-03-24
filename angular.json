@@ -78,7 +78,8 @@
               "browserTarget": "Matt-Angular-Advance:build:production"
             },
             "development": {
-              "browserTarget": "Matt-Angular-Advance:build:development"
+              "browserTarget": "Matt-Angular-Advance:build:development",
+              "proxyConfig": "proxy.config.json"
             }
           },
           "defaultConfiguration": "development"

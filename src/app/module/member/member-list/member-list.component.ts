@@ -1,3 +1,4 @@
+import { MemberService } from './../member.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -9,7 +10,13 @@ export class MemberListComponent implements OnInit {
   @Input() memberList!: string;
   @Output() memberListChange = new EventEmitter();
 
-  constructor() {}
+  constructor(private memberService: MemberService) {}
 
   ngOnInit(): void {}
+
+  getMemberList() {
+    const memberList = this.memberService.getMemberList().subscribe((res) => {
+      console.log(res);
+    });
+  }
 }

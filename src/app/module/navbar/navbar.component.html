@@ -1,13 +1,14 @@
 <div [ngClass]="'topnav ' + this.themeMode">
-  <div class='topnav__icon'>
+  <div class="topnav__icon">
     <a [routerLink]="['/home']">
-      <img src='../../../assets/images/icon.png' height='50' width='50'>
+      <img src="../../../assets/images/icon.png" height="50" width="50" />
     </a>
   </div>
-  <div class='topnav__content'>
+  <div class="topnav__content">
     <mat-slide-toggle [(ngModel)]="this.isLight" (change)="toggleTheme()"></mat-slide-toggle>
-    <a [routerLink]="['/book']" >Book</a>
-    <a [routerLink]="['/member']" >Member</a>
+    <a [routerLink]="['/public/auth/login']">Login</a>
+    <a [routerLink]="['/book']">Book</a>
+    <a [routerLink]="['/member']">Member</a>
     <!-- <a [routerLink]="['public/dinner']" >Dinner</a> -->
   </div>
 </div>

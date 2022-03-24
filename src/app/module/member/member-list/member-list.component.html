@@ -1,1 +1,2 @@
-<input [(ngModel)]="memberList" (change)='memberListChange.emit(memberList)' />
+<input [(ngModel)]="memberList" (change)="memberListChange.emit(memberList)" />
+<button (click)="getMemberList()">Get Member List</button>

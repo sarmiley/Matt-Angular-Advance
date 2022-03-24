@@ -1,3 +1,5 @@
+import { BehaviorSubject } from 'rxjs';
+import { MessageService } from './../../../common/message/message.service';
 import { ColorfulDirective } from 'src/app/common/directives/colorful.directive';
 import { MemberService } from './../member.service';
 import { Component, InjectionToken, Injector, OnInit, ViewChild } from '@angular/core';
@@ -6,7 +8,8 @@ import { Tab1Component } from '../tab1/tab1.component';
 import { Tab2Component } from '../tab2/tab2.component';
 import { DynamicService } from '../dynamic.service';
 
-export const token = new InjectionToken<string>('');
+export const memberData = new InjectionToken<MemberInfo>('');
+export type MemberInfo = { name: string; gender: string };
 @Component({
   selector: 'app-member-manage',
   templateUrl: './member-manage.component.html',
@@ -16,6 +19,7 @@ export class MemberManageComponent implements OnInit {
   memberList: string = '';
   account: string = '';
   showComponent!: MemberAccountComponent;
+  messages: string[] = [];
   @ViewChild('color') color!: ColorfulDirective;
 
   public activeComponent: any;
@@ -24,11 +28,14 @@ export class MemberManageComponent implements OnInit {
   public myInjector!: Injector;
 
   constructor(private memberService: MemberService, private serv: DynamicService, private injector: Injector) {
-    this.memberList = this.memberService.getMemberList();
+    this.memberService.getMemberList().subscribe((res) => {
+      this.memberService.setMemberList(res);
+    });
   }
 
   ngOnInit(): void {
     this.serv.getObservable().subscribe((data) => {
+      console.log('data is change: ', data);
       this.receivedData = data;
     });
     this.ldTab(this.tabs[0].component, this.tabs[0].data, 0);
@@ -44,15 +51,15 @@ export class MemberManageComponent implements OnInit {
 
   public tabs: any = [
     {
-      tab: 'Tab1',
+      tab: 'Eric',
       component: Tab1Component,
-      data: 'This is the first Tabbbbbbbbbb',
+      data: { name: 'Eric', gender: 'male' },
       isActive: true,
     },
     {
-      tab: 'Tab2',
+      tab: 'Jane',
       component: Tab2Component,
-      data: 'This is the second tabaaaaaaaa',
+      data: { name: 'Jane', gender: 'female' },
       isActive: true,
     },
   ];
@@ -64,18 +71,16 @@ export class MemberManageComponent implements OnInit {
   }
 
   ldTab(tabComponent: any, tabData: string, tabIndex: number) {
-    setTimeout(() => {
-      this.setActiveTab(tabIndex);
-      this.receivedData = '';
-      this.activeComponent = tabComponent;
-      this.activeComponentData = tabData;
-      this.createInjector();
-    }, 0);
+    this.setActiveTab(tabIndex);
+    this.activeComponent = tabComponent;
+    this.activeComponentData = tabData;
+    this.createInjector();
   }
 
   createInjector() {
+    // 注意，injector的providers中，useValue並無嚴謹的型別檢測，所以要特別注意型別對應問題
     this.myInjector = Injector.create({
-      providers: [{ provide: token, useValue: this.activeComponentData }],
+      providers: [{ provide: memberData, useValue: this.activeComponentData }],
       parent: this.injector,
     });
   }

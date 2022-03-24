@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { DynamicService } from '../dynamic.service';
-import { token } from '../member-manage/member-manage.component';
+import { memberData, MemberInfo } from '../member-manage/member-manage.component';
 
 @Component({
   selector: 'app-tab1',
@@ -8,12 +8,12 @@ import { token } from '../member-manage/member-manage.component';
   styleUrls: ['./tab1.component.css'],
 })
 export class Tab1Component implements OnInit {
-  public dataIn: string = '';
+  public dataIn!: MemberInfo;
 
   constructor(private inject: Injector, private serv: DynamicService) {}
 
   ngOnInit() {
-    this.dataIn = this.inject.get(token);
+    this.dataIn = this.inject.get(memberData);
   }
 
   sendData() {

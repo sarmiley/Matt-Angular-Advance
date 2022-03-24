@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../util/common.service';
 import { UtilService } from '../../util/util.service';
 
+// providers
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
