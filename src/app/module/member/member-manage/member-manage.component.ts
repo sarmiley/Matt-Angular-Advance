@@ -51,15 +51,15 @@ export class MemberManageComponent implements OnInit {
 
   public tabs: any = [
     {
-      tab: 'Eric',
+      tab: 'Mark',
       component: Tab1Component,
-      data: { name: 'Eric', gender: 'male' },
+      data: { name: 'Mark', gender: 'male' },
       isActive: true,
     },
     {
-      tab: 'Jane',
+      tab: 'Maria',
       component: Tab2Component,
-      data: { name: 'Jane', gender: 'female' },
+      data: { name: 'Maria', gender: 'female' },
       isActive: true,
     },
   ];

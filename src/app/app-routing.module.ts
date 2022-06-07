@@ -43,6 +43,15 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'reg',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./module/register/register.module').then((m) => m.RegisterModule),
+      },
+    ],
+  },
+  {
     path: '404',
     component: NotFoundComponent,
   },

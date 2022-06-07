@@ -107,6 +107,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/Matt-Angular-Advance/",
+            "name": "sarmiley",
+            "email": "sarmiley@gmail.com"
+          }
         }
       }
     }

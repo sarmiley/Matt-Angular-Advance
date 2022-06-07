@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   commonTag = '';
   utilTag = '';
   viewTag = '';
+  fontSizeWithUnits = '30';
+  fontColorWithUnits = 'gray';
 
   constructor(
     private commonService: CommonService,
@@ -29,5 +31,17 @@ export class HomeComponent implements OnInit {
     this.commonService.setTag('common service has changed by Home');
     this.utilService.setTag('util service has changed by Home');
     this.viewService.setTag('view service has changed by Home');
+  }
+
+  getColor() {
+    return 'text-blue';
+  }
+
+  getSize() {
+    return 'text-big-size';
+  }
+
+  getContent() {
+    return '<h1>this is home content</h1>';
   }
 }

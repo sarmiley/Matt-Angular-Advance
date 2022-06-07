@@ -1,0 +1,42 @@
+<div class="error-container">
+  <ul>
+    <li>account format is error</li>
+  </ul>
+</div>
+
+<!-- ngForm 用法-->
+<form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
+  <div class="register-form">
+    <div>
+      <div>
+        <label>帳號：</label>
+        <input type="text" [(ngModel)]="account" #name="ngModel" name="account" required pattern="^[A-Za-z]+$" />
+      </div>
+      <div class="form-error-container"></div>
+    </div>
+    <div>
+      <div>
+        <label>密碼：</label>
+        <input type="password" [(ngModel)]="password" #name="ngModel" name="password" />
+      </div>
+      <div class="form-error-container"></div>
+    </div>
+    <div>
+      <div>
+        <label>Email：</label>
+        <input type="text" [(ngModel)]="email" #name="ngModel" name="email" />
+      </div>
+      <div class="form-error-container"></div>
+    </div>
+    <div>
+      <div>
+        <label>Phone：</label>
+        <input type="text" [(ngModel)]="phone" #name="ngModel" name="phone" />
+      </div>
+      <div class="form-error-container"></div>
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+</form>

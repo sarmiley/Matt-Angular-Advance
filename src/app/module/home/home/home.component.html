@@ -1,7 +1,26 @@
-<p>home works!</p>
-<p> {{ this.commonTag }}</p>
-<p> {{ this.utilTag }}</p>
-<p> {{ this.viewTag }}</p>
+<div [ngClass]="'text-b ' + getColor() + ' ' + getSize()">
+  <p>home works!</p>
+  <p>{{ this.commonTag }}</p>
+</div>
+
+<hr />
+
+<div [ngClass]="{ 'text-b': true, 'text-blue': false, 'text-big-size': getSize() }">
+  <p>home works!</p>
+  <p>{{ this.commonTag }}</p>
+</div>
+
+<hr />
+<div [class.text-blue]="true" [class.text-big-size]="false">
+  <p>{{ this.viewTag }}</p>
+</div>
+
+<hr />
+<span [style.color]="fontColorWithUnits" [style.fontSize.px]="fontSizeWithUnits">test style</span>
+<hr />
+
+<div [textContent]="getContent()"></div>
+
+<div [outerHTML]="getContent()"></div>
 
 <button mat-button (click)="changeServiceTagContent()">change tag content</button>
-

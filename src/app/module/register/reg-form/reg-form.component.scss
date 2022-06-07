@@ -1,0 +1,12 @@
+.register-form {
+  margin: 50px auto;
+  text-align: center;
+  & input {
+    margin-bottom: 30px;
+  }
+}
+
+.error-container {
+  background-color: #f59d9d;
+  color: white;
+}

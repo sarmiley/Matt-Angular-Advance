@@ -41,14 +41,14 @@ import { EnvConfigService } from './common/config/env-config.service';
     httpInterceptorProviders,
     MessageService,
     { provide: ErrorHandler, useClass: ErrorLogHandler },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (envConfigService: EnvConfigService) => () => envConfigService.initConfig(),
-      deps: [EnvConfigService],
-      multi: true,
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: (envConfigService: EnvConfigService) => () => envConfigService.initConfig(),
+    //   deps: [EnvConfigService],
+    //   multi: true,
+    // },
   ],
   // 自動啟用的元件，如: index.html中的app-root
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
