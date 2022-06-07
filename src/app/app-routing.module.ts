@@ -16,7 +16,7 @@ const routes: Routes = [
         loadChildren: () => import('./module/dinner/dinner.module').then((m) => m.DinnerModule),
       },
       {
-        path: '',
+        path: 'home',
         loadChildren: () => import('./module/home/home.module').then((m) => m.HomeModule),
       },
     ],
@@ -38,7 +38,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        loadChildren: () => import('./module/home/home.module').then((m) => m.HomeModule),
+        loadChildren: () => import('./module/welcome/welcome.module').then((m) => m.WelcomeModule),
       },
     ],
   },
@@ -69,4 +69,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

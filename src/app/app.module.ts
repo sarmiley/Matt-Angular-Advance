@@ -1,3 +1,4 @@
+import { WelcomeModule } from './module/welcome/welcome.module';
 import { MessageComponent } from './common/message/message.component';
 import { ErrorLogHandler } from './common/errorHandler/error-log-handler';
 import { MaterialModule } from './shared/material/material.module';
@@ -33,6 +34,7 @@ import { EnvConfigService } from './common/config/env-config.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    WelcomeModule
   ],
   // 公開給外部使用的類別
   exports: [],
